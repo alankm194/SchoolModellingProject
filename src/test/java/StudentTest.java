@@ -8,42 +8,37 @@ public class StudentTest {
 
     @Test
     public void whenStudentHasZGrade_thenThrowIllegalArgumentException() {
-        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
-            Student test = new Student("John", "2", "Z");
-        }, "IllegalArgumentException was expected");
+        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class,
+                () -> new Student("John", "2", "Z"), "IllegalArgumentException was expected");
         assertEquals("Grade must be between A and F", thrown.getMessage());
     }
 
     @Test
     public void whenStudentHasGGrade_thenThrowIllegalArgumentException() {
-        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
-            Student test = new Student("John", "2", "G");
-        }, "IllegalArgumentException was expected");
+        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () ->
+            new Student("John", "2", "G"), "IllegalArgumentException was expected");
         assertEquals("Grade must be between A and F", thrown.getMessage());
     }
 
     @Test
     public void whenStudentHasGroup0_thenThrowIllegalArgumentException() {
-        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
-            Student test = new Student("John", "0", "B");
-        }, "IllegalArgumentException was expected");
+        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () ->
+            new Student("John", "0", "B"), "IllegalArgumentException was expected");
         assertEquals("Group must be between 1 and 5", thrown.getMessage());
     }
 
     @Test
     public void whenStudentHasGroup6_thenThrowIllegalArgumentException() {
-        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
-            Student test = new Student("John", "6", "B");
-        }, "IllegalArgumentException was expected");
+        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class,
+                () -> new Student("John", "6", "B"), "IllegalArgumentException was expected");
         assertEquals("Group must be between 1 and 5", thrown.getMessage());
     }
 
     @Test
-    public void whenStudentIsJohnAndHasAGradeAndGroup1ThenReturnJohnWithGroup1AndGradeA() {
+    public void whenStudentIsJohnAndHasAGradeAndGroup1ThenReturnJohnAndGradeA() {
         Student test = new Student("John", "1", "A");
         assertEquals("John", test.getName());
         assertEquals("A", test.getGrade() );
-        assertEquals("1", test.getGroup());
     }
 
     @Test

@@ -16,18 +16,16 @@ public class Student {
     private static final Set<String> GROUP_NUM_SET = Set.of("1", "2", "3", "4", "5");
     
     public Student(String name, String group, String grade) {
-        this.name = name;
-        this.secretNickName = "mySecretNickname";
-        if (GROUP_NUM_SET.contains(group)) {
-            this.group = group;
-        } else {
+        if (!GROUP_NUM_SET.contains(group)) {
             throw new IllegalArgumentException("Group must be between 1 and 5");
         }
-        if (GRADE_ARRAY.contains(grade)) {
-            this.grade = grade;
-        } else {
+        if (!GRADE_ARRAY.contains(grade)) {
             throw new IllegalArgumentException("Grade must be between A and F");
         }
+        this.name = name;
+        this.secretNickName = "mySecretNickname";
+        this.grade = grade;
+        this.group = group;
     }
 
     public String getName() {
